@@ -1,0 +1,482 @@
+/* левая кнопка меню - бургер */
+
+html {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+}
+body {
+	background-color: transparent;
+	align-items: center;
+	height: 100vh;
+	margin: 0;
+	font-family: Avenir, Arial;
+}
+.wrapper {
+	z-index: 3; /* чтобы кнопка была поверх всех страниц */
+	height: 60px; /* Михаил Круг */
+	width: 60px;
+	background-color: transparent; /* прозрачный фон */
+	position: fixed;
+	left: 5px;
+	top: 50%;
+	cursor: pointer;
+}
+span::before,
+span::after,
+span {
+	position: absolute;
+	top: 50%; margin-top: -15px;
+	left: 50%; margin-left: -2px;
+	height: 30px;
+	width: 4px;
+	background-color: #222;
+}
+span::before,
+span::after {
+	content: '';
+	display: block;
+	transition: 0.3s;
+}
+span::before {
+	transform: translateX(-10px); /* линия слева (псевдоэлемент) */
+}
+span::after {
+	transform: translateX(10px); /* линия справа (псевдоэлемент) */
+}
+.wrapperActive span:before {
+	transform: rotate(45deg);
+	margin: 50%;
+	background-color: #fff;
+}
+.wrapperActive span:after {
+	transform: rotate(-45deg);
+	margin: 50%;
+	background-color: #fff;
+}
+.wrapperActive span {
+	height: 0;
+	width: 0;
+}
+
+/* левая часть страницы */
+
+.left {
+	width: 50%;
+	/* margin-left: -60px; /* уменьшить отступ на размер левой кнопки меню, чтобы div занимал 50% ширины экрана */
+	height: 100vh;
+	background-color: #fff;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+h1 {
+	color: black;
+	font-family: Avenir, Arial;
+	font-weight: bold;
+	font-size: 40px;
+	letter-spacing: -1px; 
+	line-height: 1;
+	text-align: center;
+	margin: auto;
+	text-transform: uppercase;
+}
+#contacts {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	color: black;
+	font-family: Avenir, Arial;
+	font-size: 15px;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+.e-mail,
+.phone {
+	margin-right: 30px;
+	cursor: pointer;
+}
+.e-mail:hover,
+.phone:hover {
+	text-decoration: underline;
+}
+#iconWrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-bottom: 10px;
+}
+.icons {
+	height: 30px;
+	cursor: pointer;
+}
+
+/* правая часть страницы */
+
+.right {
+	width: 50%;
+	height: 100%;
+}
+#videoContainer {
+	overflow: hidden;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+}
+#videoContainer video {
+	z-index: -1;
+	position: absolute;
+	top: 0;
+	left: 0;
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+}
+.description {
+	height: 100%;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	text-align: left;
+	padding-left: 50px;
+	position: absolute;
+    top:0;
+	left:50%;
+    z-index:1;
+}
+h2 {
+	color: #fff;
+	font-family: Avenir, Arial;
+	font-weight: bold;
+	font-size: 50px;
+	letter-spacing: -1px;
+}
+
+/* ВТОРАЯ СТРАНИЦА */
+
+.firstPage,
+.secondPage,
+.thirdPage,
+.fourthPage,
+.fifthPage {
+	width: 100%;
+	height: 100vh;
+	align-items: center;
+	display: flex;
+}
+.block {
+	flex-direction: column;
+}
+.secondPage,
+.thirdPage {
+	flex-direction: row;
+}
+.block,
+.thirdPage,
+.fifthPage {
+	display: none;
+}
+
+#secondLeft {
+	background-color: #df6d65;  /*персиковый цвет для страницы*/
+	color: #fff;
+	font-family: Avenir, Arial;	
+	width: 100%;
+	align-items: center;
+	text-align: center;
+	/* padding-left: 30px; /*выравнивание текста по центру (оступ из-за кнопки меню)*/
+}
+#photoContainer {
+	filter: grayscale(100%); /* делаем картинку черно-белой */
+	background-image: url("/photos/1.jpg");
+	background-size: cover;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+.byNames {
+	display: flex;
+	flex-direction: column;
+	margin-top: 20%;
+}
+h3 {
+	font-size: 14px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	font-weight: normal;
+	margin: 5% auto;
+}
+a {
+	text-decoration: none;
+	color: #fff;
+	font-weight: bold;
+	font-size: 35px;
+	margin: 5% auto;
+}
+a:hover {
+	color: #D3D3D3;
+}
+hr {
+	width: 65px;
+}
+.country {
+	font-size: 21px;
+	font-weight: bold;
+	margin: 0 10px;
+}
+#countries {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.bullet {
+	width: 5px;
+	height: 5px;
+	transform: rotate(45deg);
+	background-color: #fff;
+	margin: 0 5px;
+}
+.arrow::after,
+.arrow {
+	width: 20px;
+	height: 20px;
+	transform: rotate(-45deg);
+	box-shadow: -3px 3px 0px 0px rgba(255,255,255,1);
+	cursor: pointer;
+}
+.arrow::after {
+	content: '';
+	transform: translateY(10px); /* почему не отделяется? */
+}
+.scrollDown,
+.scrollUp,
+.scrollDown2,
+.scrollUp2 {
+	position: relative;
+	left:0;
+	top: 0;
+	margin-bottom: 10px;
+}
+#location {
+	margin-top: 50%;
+	pointer-events: none;
+}
+h4 {
+	margin: 0;
+	font-size: 25px;
+	letter-spacing: -1px;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-family: Avenir, Arial;
+	line-height: 25px;
+	pointer-events: none;
+	color: #fff;
+}
+
+/* ТРЕТЬЯ СТРАНИЦА */
+
+#thirdLeft {
+	background-color: #85A2DA;  /*голубой цвет для страницы*/
+	color: #fff;
+	font-family: Avenir, Arial;	
+	width: 100%;
+	align-items: center;
+	text-align: center;
+	/* padding-left: 30px; /*выравнивание текста по центру (оступ из-за кнопки меню)*/
+}
+#photoContainer3 {
+	filter: grayscale(100%); /* делаем картинку черно-белой */
+	background-image: url("/photos/2.jpg");
+	background-size: cover;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+.arrowBack::after,
+.arrowBack {
+	width: 20px;
+	height: 20px;
+	transform: rotate(135deg);
+	box-shadow: -3px 3px 0px 0px rgba(255,255,255,1);
+	cursor: pointer;
+}
+.arrowBack::after {
+	content: '';
+	transform: translateY(10px); /* почему не отделяется? */
+}
+
+/* ЧЕТВЕРТАЯ СТРАНИЦА */
+
+#fourthLeft {
+	background-color: #a0a82e;
+	color: #fff;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	padding-bottom: 50px;
+}
+.return {
+	z-index: 3; /* чтобы кнопка была поверх всех страниц */
+	height: 100px;
+	width: 100px;
+	background:rgba(255,255,255,0.5); /* полупрозрачный фон */
+	position: fixed;
+	left: 15px;
+	top: 0;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+.xs{
+	margin-top: 5px;
+	font-size: 10px;
+	line-height: 10px;
+	letter-spacing: 0;
+}
+#logoXs {
+	height: 15px;
+}
+p {
+	padding: 0 50px;
+}
+h5 {
+	font-weight: bold;
+	font-size: 35px;
+	margin: 0;
+}
+h6 {
+	margin: 0;
+	font-size: 21px;
+	font-weight: bold;
+}
+.content {
+	padding-top: 100px;
+}
+.number {
+	font-size: 20px;
+}
+#photoContainer4,
+#photoContainer5 {
+	position: relative;
+	width: 50%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+}
+img {
+	max-width:80%;
+	margin: 5px;
+}
+
+/* ПЯТАЯ СТРАНИЦА */
+
+#fifthLeft {
+	background-color: #F8C061;
+	color: #fff;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+.row {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	overflow: hidden;
+	margin: 50px ;
+	height: 50%;
+}
+iframe {
+	width: 560px;
+	height: 315px;
+}
+
+/* АДАПТИВНОСТЬ */
+
+@media screen and (max-width: 1000px) {
+	h2 {
+		font-size: 45px;
+		letter-spacing: -1px;
+		line-height: 60px;
+	}
+	.description {
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+	iframe {
+		width:360px;
+	}
+}
+@media screen and (max-width: 800px) {
+	#contacts {
+		flex-direction: column;
+		align-items: center;
+	}
+	p {
+		font-size: 15px;
+	}
+	.hide {
+		display: none;
+	}
+	.show {
+		width: 100%;
+	}
+}
+@media screen and (max-width: 700px) {
+	.wrapper {
+		left: 25%;
+		margin-left: -30px;
+		top: 5px;
+		transform: rotate(90deg);	
+	}
+	h2 {
+		font-size: 35px;
+		letter-spacing: -1px;
+		line-height: 50px;
+	}
+	.description {
+		padding-left: 30px;
+	}
+	.fourthPage,
+	.fifthPage {
+		height: 100%;
+	}
+	.left {
+		width: 100%;
+	}
+	.right,
+	#photoContainer4,
+	#photoContainer5 {
+		display: none;
+	}
+}
+@media screen and (max-width: 600px) {
+	#firstLeft {
+		width: 100vh;
+	}
+	.right,
+	video,
+	#videoContainer,
+	.hide {
+		display: none;
+		overflow: hidden;
+	}
+	.wrapper {
+		left: 50%;
+	}
+	.scrollDown,
+	.scrollUp {
+		margin-bottom: 20px;
+	}
+}
